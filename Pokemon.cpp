@@ -18,7 +18,7 @@ Pokemon::Pokemon()
 
 Pokemon::~Pokemon()
 {
-
+    //destructor
 }
 
 void Pokemon::showPokemonInfo() const
