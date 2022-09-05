@@ -32,7 +32,7 @@ void Pokemon::showPokemonInfo() const
 
 void Pokemon::levelUp()
 {
-    this->level += level;
+    this->level += 1;
 }
 
 void Pokemon::setStrength(int strength)

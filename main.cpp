@@ -25,6 +25,7 @@ int main()
     charizard.evolve();
     charizard.setArmor(7);
     charizard.levelUp();
+    charizard.levelUp();
     charizard.showPokemonInfo();
     return 0;
 }

@@ -20,14 +20,11 @@ public:
 
 //not allowed for user to modify
 private:
+    string name;
     bool isEvolved;
     int level;
     double strength;
     int armor;
-    string name;
 };
-
-
-
 
 #endif; //POKEMON_H
