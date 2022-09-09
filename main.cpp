@@ -9,8 +9,8 @@ int main()
     cout << "Initializing Pokemon in main \n";
 
     cout << '\n';
-    Pokemon pikachu(5);
-    pikachu.showAge();
+    Pokemon pikachu(1);
+    // pikachu.showAge();
     pikachu.setName("Pikachu");
     pikachu.setStrength(20);
     pikachu.evolve();
@@ -26,7 +26,7 @@ int main()
     cout << '\n';
     cout << '\n';
     Pokemon charizard(pikachu); //copy constructor
-    charizard.showAge();
+    // charizard.showAge();
     charizard.setName("Charizard");
     charizard.setStrength(999);
     charizard.setArmor(7);
@@ -37,5 +37,10 @@ int main()
     cout <<"Owner: " << charizard.showOwner() << "\n";
     cout <<"Max Level: " << charizard.showMaxLevel() << "\n";
     charizard.showPokemonInfo();
+    cout << "\n";
+
+    //Copy constructor example:
+    Pokemon pikachuCopia(pikachu);
+    pikachuCopia.showPokemonInfo();
     return 0;
 }

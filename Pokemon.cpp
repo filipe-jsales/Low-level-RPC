@@ -29,9 +29,9 @@ Pokemon::Pokemon(bool aIsEvolved, int aLevel, int aStrength, int aArmor, string 
 
 Pokemon::Pokemon(int age = 10)
 {
-    cout << "Calling copy constructor\n";
-    this->age = age;
-    this->vec = new int [age];
+    // cout << "Calling copy constructor\n";
+    // this->age = age;
+    // this->vec = new int [age];
 }
 
 Pokemon::~Pokemon()
