@@ -6,21 +6,6 @@ using namespace std;
 class Pokemon
 {
 
-private:
-    bool isEvolved;
-    int level;
-    double strength;
-    int armor;
-    string name ;
-
-    //const attributes
-    const string owner = "ash";
-    const int maxLevel = 100;
-
-    //attributes to copy constructor
-    int * vec;
-    int age;
-
 public:
 
     Pokemon(); //constructor default
@@ -48,6 +33,22 @@ public:
     void rest() const;
     void showPokemonInfo() const;
     string showOwner() const;
+    
+private:
+    bool isEvolved;
+    int level;
+    double strength;
+    int armor;
+    string name ;
+
+    //const attributes
+    const string owner = "ash";
+    const int maxLevel = 100;
+
+    //attributes to copy constructor
+    int * vec;
+    int age;
+
 
 
 };
