@@ -1,79 +1,99 @@
 #include <iostream>
-using std::cout;
-
 #include "Pokemon.h"
-using namespace std;
 #include <string>
 #include <string.h>
+using std::cout;
 
 //constructor without arguments
 Pokemon::Pokemon()
 {
-    isEvolved = false;
-    level = 1;
-    strength = 12;
-    armor = 1;
-    name = "unknown";
+    this->isEvolved = false;
+    this->level = 1;
+    this->strength = 1;
+    this->armor = 1;
+    this->name = "unknown";
     cout << "Constructor default (without arguments)\n";
 }
-//constructor with arguments
+// constructor with arguments
 Pokemon::Pokemon(bool aIsEvolved, int aLevel, int aStrength, int aArmor, string aName)
 {
-    isEvolved = aIsEvolved;
-    level = aLevel;
-    strength = aStrength;
-    armor = aArmor;
-    name = aName;
+    this->isEvolved = aIsEvolved;
+    this->level = aLevel;
+    this->strength = aStrength;
+    this->armor = aArmor;
+    this->name = aName;
     cout << "Initializing Pokemon in constructor (with arguments) \n";
 }
 
-Pokemon::Pokemon(int age = 10)
+//default parameters in constructor
+Pokemon::Pokemon(int level, double strength)
 {
-    // cout << "Calling copy constructor\n";
-    // this->age = age;
-    // this->vec = new int [age];
+    setLevel(level);
+    setStrength(strength);
+}
+
+Pokemon::Pokemon(const Pokemon& other)
+{
+    this->strength = other.strength;
+    // this->armor = other.armor;
+    // this->level = other.level;
+    // this->isEvolved = other.isEvolved;
 }
 
 Pokemon::~Pokemon()
 {
-    delete [] this->vec;
 }
 void Pokemon::setStrength(int strength)
 {
     this->strength = strength;
 }
 
-double Pokemon::getStrength()
+double Pokemon::getStrength() const
 {
     return this->strength; 
 }
 
 void Pokemon::setArmor(int armor)
 {
-    this->armor = armor;
+    if (armor >=0 )
+    {
+        this->armor = armor;
+        return;
+    }
+    this->armor = 0;
 }
 
-int Pokemon::getArmor()
+int Pokemon::getArmor() const
 {
     return this->armor; 
 }
 
 void Pokemon::setName(string name)
 {
-    this->name = name;
+    if (name != "")
+    {
+        this->name = name;
+        return;
+    }
+    this->name = "unknown";
 }
 
-string Pokemon::getName()
+string Pokemon::getName() const
 {
     return this->name;
 }
 
 void Pokemon::setLevel(int level)
 {
-    this->level = level;
+    if (level > 0)
+    {
+        this->level = level;
+        return;
+    }
+    this->level = 0;
 }
 
-int Pokemon::getLevel()
+int Pokemon::getLevel() const
 {
     return this->level;
 }
@@ -84,7 +104,12 @@ void Pokemon::rest() const
 }
 void Pokemon::levelUp()
 {
-    this->level += 1;
+    if (this->level < this->MAXLEVEL)
+    {
+        this->level += 1;
+        return;
+    }
+    this->level +=0;
 }
 void Pokemon::evolve()
 {
@@ -101,15 +126,10 @@ void Pokemon::showPokemonInfo() const
 
 string Pokemon::showOwner() const
 {
-    return this->owner;
+    cout << "Owner: " << this->owner << "\n";
 }
 
-int Pokemon::showMaxLevel() 
+int Pokemon::showMaxLevel() const
 {
-    return this->maxLevel;
-}
-
-int Pokemon::showAge()
-{
-    cout <<"Age: " << this->age << "\n";
+    cout << "MAX LEVEL: " << this->MAXLEVEL << "\n";
 }
